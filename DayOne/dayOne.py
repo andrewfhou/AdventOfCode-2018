@@ -33,13 +33,13 @@ def solve() :
                 freq = freq - int(i[1:])
         
             if freq in seen :
-                print("Part Two: " + str(freq) + "\ntime taken: " + str(time.time() - start))
+                print("\nPart Two: " + str(freq) + "\ntime taken: " + str(time.time() - start) + "\n")
                 done = True
                 return
             seen.add(freq)
 
         elapsed = time.time() - iterTime
-        print("iteration " + str(iteration) + "\t|freq: " + str(freq) + "\t|time: " + str(elapsed))
+        print("iteration " + str(iteration) + "\tfreq: " + str(freq) + "\ttime: " + str(elapsed))
         iteration = iteration + 1
 
 solve()
