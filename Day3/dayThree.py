@@ -2,9 +2,8 @@ import time
 
 curr_ms = lambda: time.time() * 1000
 
-file = open('input.txt', 'r')
-inputs = file.read().strip().split()
-file.close()
+with open("input.txt") as file:
+        inputs = file.read().strip().split()
 
 def partOne() :
     start = curr_ms()
