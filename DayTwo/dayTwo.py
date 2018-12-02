@@ -26,7 +26,7 @@ def partOne() :
             i = i + 1
 
     print("Part One: " + str(twoCount) + " * " + str(threeCount) + " = " + str(twoCount * threeCount))
-    print("Time Taken: " + str(curr_ms() - start) + "ms")
+    print("Time Taken: " + str(curr_ms() - start) + "ms\n")
 
 def partTwo() :
     start = curr_ms()
@@ -43,7 +43,7 @@ def partTwo() :
                 i += 1
             if diffCount == 1 :
                 print("Part Two: " + x[0:diffIndex] + x[diffIndex + 1:])
-                print("Time Taken: " + str(curr_ms() - start) + "ms")
+                print("Time Taken: " + str(curr_ms() - start) + "ms\n")
                 return
 
 partOne()

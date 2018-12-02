@@ -6,7 +6,7 @@ file = open('input.txt', 'r')
 inputs = file.read().strip().split()
 file.close()
 
-def sum() :
+def partOne() :
     start = curr_ms()
     freq = 0
 
@@ -17,29 +17,24 @@ def sum() :
             freq = freq - int(i[1:])
     
     print("Part One: " + str(freq))
-    print("time taken: " + str(curr_ms() - start) + "ms")
+    print("Time Taken: " + str(curr_ms() - start) + "ms\n")
 
-def solve() :
+def partTwo() :
     start = curr_ms()
     freq = 0
     seen = set([freq])
     done = False
-    iteration = 0
 
     while not done :
         for i in inputs :
-            iterTime = curr_ms()
             freq = freq + int(i[:])
         
             if freq in seen :
-                print("\nPart Two: " + str(freq) + "\ntime taken: " + str(curr_ms() - start) + " ms\n")
+                print("Part Two: " + str(freq))
+                print("Time Taken: " + str(curr_ms() - start) + "ms\n")
                 done = True
                 return
             seen.add(freq)
 
-        elapsed = curr_ms() - iterTime
-        print("iteration " + str(iteration) + "\tfreq: " + str(freq) + "\ttime: " + str(elapsed) + "ms")
-        iteration = iteration + 1
-
-solve()
-sum()
+partOne()
+partTwo()
