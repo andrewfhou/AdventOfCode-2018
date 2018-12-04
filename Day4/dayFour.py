@@ -1,4 +1,8 @@
+import time
 from collections import defaultdict
+
+
+def curr_ms(): return time.time() * 1000
 
 
 with open("input.txt") as file:
@@ -33,21 +37,34 @@ for x in inputs:
             guards[(guardID, tt)] += 1
             timeslots[guardID] += 1
 
-targetGuard = max(timeslots, key=timeslots.get)
 
-targetMin = None
-greatest = 0
-for k, v in guards.items():
-    if k[0] == targetGuard:
-        if targetMin is None or v > greatest:
-            targetMin = k[1]
-            greatest = v
+def partOne():
+    start = curr_ms()
 
-print("Part One:", targetGuard, "*", targetMin, "=", (targetGuard * targetMin))
+    targetGuard = max(timeslots, key=timeslots.get)
 
-target = None
-for key, val in guards.items():
-    if target is None or val > guards[target]:
-        target = key
+    targetMin = None
+    greatest = 0
+    for k, v in guards.items():
+        if k[0] == targetGuard:
+            if targetMin is None or v > greatest:
+                targetMin = k[1]
+                greatest = v
 
-print("Part Two:", target[0], '*', target[1], '=', (target[0] * target[1]))
+    print("Part One:", targetGuard, "*", targetMin, "=", (targetGuard * targetMin))
+    print("Time Taken: " + str(curr_ms() - start) + "ms\n")
+
+
+def partTwo():
+    start = curr_ms()
+
+    target = None
+    for key, val in guards.items():
+        if target is None or val > guards[target]:
+            target = key
+
+    print("Part Two:", target[0], '*', target[1], '=', (target[0] * target[1]))
+    print("Time Taken: " + str(curr_ms() - start) + "ms")
+
+partOne()
+partTwo()
