@@ -19,13 +19,13 @@ guards = defaultdict(int)
 timeslots = defaultdict(int)
 
 for x in inputs:
-    timet = int(x[1])
+    currTime = int(x[1])
     if x[2] == 'Guard':
         guardID = int(x[3][1:])
     elif x[2] == 'falls':
-        asleep = timet
+        asleep = currTime
     elif x[2] == 'wakes':
-        for tt in range(asleep, timet):
+        for tt in range(asleep, currTime):
             guards[(guardID, tt)] += 1
             timeslots[guardID] += 1
 
@@ -37,8 +37,7 @@ def partOne():
             target = key
     
     targetGuard, targetMin = target
-    print(targetGuard, targetMin)
-    print(targetGuard * targetMin)
+    print(targetGuard, "*", targetMin, "=",(targetGuard * targetMin))
 
 def partTwo():
     return
