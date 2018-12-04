@@ -29,19 +29,10 @@ for x in inputs:
             guards[(guardID, tt)] += 1
             timeslots[guardID] += 1
 
-
-def partOne():
-    target = None
-    for key, val in guards.items():
-        if target is None or val > guards[target]:
-            target = key
+target = None
+for key, val in guards.items():
+    if target is None or val > guards[target]:
+        target = key
     
-    targetGuard, targetMin = target
-    print(targetGuard, "*", targetMin, "=",(targetGuard * targetMin))
-
-def partTwo():
-    return
-
-
-partOne()
-# partTwo()
+targetGuard, targetMin = target
+print(targetGuard, "*", targetMin, "=",(targetGuard * targetMin))
