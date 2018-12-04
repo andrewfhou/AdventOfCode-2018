@@ -41,8 +41,10 @@ for k,v in guards.items():
 
 print(targetGuard, "*", targetMin, "=",(targetGuard * targetMin))
 
-# note: minute 40 should (maybe?) have 14 sleeps, only has 13 now. According to
-# Amy's output anyways
+# TODO: 
+#	minute 40 should (maybe?) have 14 sleeps, only has 13 now. According to
+#	Amy's output anyways. Running this script on her input has an incorrect pt1 
+#	and a correct pt2
 
 target = None
 for key, val in guards.items():
