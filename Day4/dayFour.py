@@ -29,12 +29,14 @@ for x in inputs:
             guards[(guardID, tt)] += 1
             timeslots[guardID] += 1
 
-target = None
-for key, val in guards.items():
-    if target is None or val > guards[target]:
-        target = key
+# target = None
+# for key, val in guards.items():
+#     if target is None or val > guards[target]:
+#         target = key
     
-targetGuard = target[0]
+# targetGuard = target[0]
+
+targetGuard = max(timeslots, key=timeslots.get)
 
 targetMin = None
 for k,v in guards.items():
