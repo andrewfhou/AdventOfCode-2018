@@ -29,19 +29,24 @@ for x in inputs:
             guards[(guardID, tt)] += 1
             timeslots[guardID] += 1
 
-# target = None
-# for key, val in guards.items():
-#     if target is None or val > guards[target]:
-#         target = key
-    
-# targetGuard = target[0]
-
 targetGuard = max(timeslots, key=timeslots.get)
 
 targetMin = None
+greatest = 0
 for k,v in guards.items():
     if k[0] == targetGuard:
-        if targetMin is None or k[1] > targetMin:
+        if targetMin is None or v > greatest:
             targetMin = k[1]
+            greatest = v
 
 print(targetGuard, "*", targetMin, "=",(targetGuard * targetMin))
+
+# note: minute 40 should (maybe?) have 14 sleeps, only has 13 now. According to
+# Amy's output anyways
+
+target = None
+for key, val in guards.items():
+    if target is None or val > guards[target]:
+        target = key
+
+print(target[0], '*', target[1], '=', (target[0] * target[1]))
