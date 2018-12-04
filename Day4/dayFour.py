@@ -34,5 +34,12 @@ for key, val in guards.items():
     if target is None or val > guards[target]:
         target = key
     
-targetGuard, targetMin = target
+targetGuard = target[0]
+
+targetMin = None
+for k,v in guards.items():
+    if k[0] == targetGuard:
+        if targetMin is None or k[1] > targetMin:
+            targetMin = k[1]
+
 print(targetGuard, "*", targetMin, "=",(targetGuard * targetMin))
