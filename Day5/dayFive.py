@@ -4,7 +4,7 @@ with open("input.txt") as file:
     inputs = [list(line.rstrip()) for line in file]
 
 with open("input.txt") as file:
-    inputString = file.read()
+    inputString = file.read().strip()
 
 inputs = inputs[0]
 
@@ -24,11 +24,11 @@ def partOne(inputs):
 def partTwo(inputs):
     minLen = len(inputs)
     for letter in ascii_lowercase:
-        x = inputs.replace(letter, "").replace(letter.upper(), "")
-        minLen = min(minLen, partOne(x))
+        temp = inputs.replace(letter, "").replace(letter.upper(), "")
+        minLen = min(minLen, partOne(temp))
 
     return minLen
 
 
-print("Part One:", partOne(inputString))
+print("Part One:", partOne(inputs))
 print("Part Two:", partTwo(inputString))
