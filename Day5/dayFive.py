@@ -26,5 +26,19 @@ def partTwo(inputs):
     return minLen
 
 
+def partTwoSlice(inputs):
+    minLen = len(inputs)
+    for letter in ascii_lowercase:
+        i = 0
+        while i < len(inputs) - 1:
+            temp = inputs
+            j = i + 1
+            if temp[i].lower == letter and temp[i] != temp[j] and temp[i].upper() == temp[j].upper():
+                temp = temp[:i] + temp[i+2:]
+                i = max(0, i-1)
+            i = i + 1
+        minLen = min(minLen, partOne(temp))
+
+
 print("Part One:", partOne(inputString))
 print("Part Two:", partTwo(inputString))
