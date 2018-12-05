@@ -1,12 +1,7 @@
 from string import ascii_lowercase
 
 with open("input.txt") as file:
-    inputs = [list(line.rstrip()) for line in file]
-
-with open("input.txt") as file:
     inputString = file.read().strip()
-
-inputs = inputs[0]
 
 
 def partOne(inputs):
@@ -21,6 +16,7 @@ def partOne(inputs):
 
     return len(inputs)
 
+
 def partTwo(inputs):
     minLen = len(inputs)
     for letter in ascii_lowercase:
@@ -30,5 +26,5 @@ def partTwo(inputs):
     return minLen
 
 
-print("Part One:", partOne(inputs))
+print("Part One:", partOne(inputString))
 print("Part Two:", partTwo(inputString))
