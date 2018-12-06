@@ -60,7 +60,7 @@ for y in range(maxY): # delete values with y out-of-bounds/inf area
     areas.pop(target, None)
 
 largest = 0
-for a, _ in areas.items():
+for a in areas:
     if a > largest:
         largest = a
 
