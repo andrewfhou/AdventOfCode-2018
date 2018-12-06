@@ -20,7 +20,7 @@ for a in inputs:
     if y > maxY:
         maxY = y
 
-grid = [[None for x in range(maxX + 1)] for y in range(maxY + y)]
+# grid = [[None for x in range(maxX + 1)] for y in range(maxY + y)]
 areas = defaultdict(int)
 
 for x in range(maxX):
@@ -39,25 +39,11 @@ for x in range(maxX):
             elif dist == shortest:
                 best = -1
         
-        grid[x][y] = best
-        total = areas[best]
-        if total == 0:
-            total = 1
+        if areas[best] == 0:
+            areas[best] = 1
         else:
-            total += 1
-        areas[best] = total
+            areas[best] += 1
 
-for x in range(maxX): # delete values with x out-of-bounds/inf area
-    target = grid[x][0]
-    areas.pop(target, None)
-    target = grid[x][maxY]
-    areas.pop(target, None)
-
-for y in range(maxY): # delete values with y out-of-bounds/inf area
-    target = grid[0][y]
-    areas.pop(target, None)
-    target = grid[maxX][y]
-    areas.pop(target, None)
 
 largest = 0
 for a in areas:
