@@ -1,2 +1,2 @@
-# AdventOfCode2018
-Solutions for the 2018 Advent of Code puzzles
+# advent of code 2018
+My solutions for Advent of Code 2018, in Python
